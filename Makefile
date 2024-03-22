@@ -11,7 +11,18 @@ check:
 	ansible-playbook -i  hosts playbook.yml --check --diff -c local
 
 install:
-	ansible-playbook -i hosts playbook.yml -c local
+	@echo "Choose your OS:"
+	@echo "1. MacOS"
+	@echo "2. Ubuntu"
+	@read -p "Enter your choice: " choice; \
+	if [ $$choice -eq 1 ]; then \
+		ansible-playbook -i hosts playbook.yml -c local --tags "dotfiles,brew,python,macos"; \
+	elif [ $$choice -eq 2 ]; then \
+		ansible-playbook -i hosts playbook.yml -c local --tags "dotfiles,brew"; \
+	else \
+		echo "Invalid choice"; \
+	fi
+
 
 dotfiles:
 	ansible-playbook -i hosts playbook.yml -c local --tags dotfiles
