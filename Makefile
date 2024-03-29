@@ -14,11 +14,14 @@ install:
 	@echo "Choose your OS:"
 	@echo "1. MacOS"
 	@echo "2. Ubuntu"
+	@echo "3. Ubuntu (WSL2)"
 	@read -p "Enter your choice: " choice; \
 	if [ $$choice -eq 1 ]; then \
 		ansible-playbook -i hosts playbook.yml -c local --tags "dotfiles,brew,python,macos"; \
 	elif [ $$choice -eq 2 ]; then \
 		ansible-playbook -i hosts playbook.yml -c local --tags "dotfiles,brew"; \
+	elif [ $$choice -eq 3 ]; then \
+		ansible-playbook -i hosts playbook.yml -c local --tags "dotfiles,brew,wsl"; \
 	else \
 		echo "Invalid choice"; \
 	fi

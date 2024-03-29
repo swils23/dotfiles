@@ -1,7 +1,8 @@
 Install required packages
 ```sh
 cd ~ && \
-sudo apt-get update && sudo apt-get install -y gcc make git curl ansible build-essential zsh
+sudo apt-get update && sudo apt-get upgrade -y && \
+sudo apt-get install -y gcc make git curl ansible build-essential zsh
 ```
 
 Install Homebrew and add to PATH

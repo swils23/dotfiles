@@ -3,6 +3,10 @@
 - hosts: dotfiles
   roles:
     - dotfiles
+    - tags: dotfiles
     - brew
+    - tags: brew
     - python
+    - tags: python
     - macos
+    - tags: macos
