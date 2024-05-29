@@ -8,7 +8,7 @@ function j() {
     case $1 in
         dump_prod)
             PGPASSWORD=abc123 \
-            pg_dump -h apppack-database-fns-pg-prod-cluster-a4885j2cjvo8.cluster-cxydefvahe0y.us-east-1.rds.amazonaws.com -p 5432 -U sam -d fns-prod -F c -f fns_prod_`date +%Y%m%d_%H%M%S`.dump
+            pg_dump -h URL -p 5432 -U USERNAME -d fns-prod -F c -f dump_`date +%Y%m%d_%H%M%S`.dump
             ;;
         makemigrations)
             dcrr web python manage.py makemigrations
