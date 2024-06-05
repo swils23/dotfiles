@@ -19,6 +19,11 @@ function j() {
         d)
             dka; dcc; dci; dcb
             ;;
+        dbr)
+            j d &&\
+            docker volume rm n-pears_db-data || true &&\
+            j db_restore $2
+            ;;
         flttp)
             j fl && j ttp
             ;;
@@ -49,11 +54,17 @@ function j() {
         mm)
             j makemigrations
             ;;
+        mmm)
+            j mm && j m
+            ;;
         ss)
             j snapshot_save $2
             ;;
         sr)
             j snapshot_restore $2
+            ;;
+        u)
+            j d && j start
             ;;
         *)
             just "$@"
@@ -79,6 +90,7 @@ _j_completions() {
 
     # Combine custom options with just completions
     combined_opts="${opts} ${just_completions}"
+    combined_opts=$(echo $combined_opts | tr ' ' '\n' | sort | uniq | tr '\n' ' ')
 
     if [[ ${cur} == --* ]]; then
         COMPREPLY=( $(compgen -W "${combined_opts}" -- ${cur}) )
