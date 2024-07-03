@@ -23,8 +23,20 @@ git clone https://github.com/swils23/dotfiles.git .dotfiles \
 && cd ~/.dotfiles && make install
 ```
 
+Remove dotfiles directory
+```sh
+cd ~ && rm -rf ~/.dotfiles
+```
+
 Set zsh as default shell
 ```sh
 echo "/usr/bin/zsh" | sudo tee -a /etc/shells && \
 chsh -s /usr/bin/zsh
 ```
+
+Switch to zsh
+```sh
+zsh
+```
+
+(WSL ONLY) Change the font to Roboto Mono Medium for Powerline `CTRL+,` > Ubuntu > Appearence > Font > Roboto Mono Medium for Powerline (click show all fonts)
