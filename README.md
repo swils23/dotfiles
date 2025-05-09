@@ -10,32 +10,39 @@ This is my personal dotfiles. They are managed using:
 Installation
 ------------
 
-1. Install Homebrew
+1. Install Brew
+    ```sh
+    # Install build-essential, since it can break stuff way down the line
+    sudo apt-get -y install build-essential
 
-        /bin/bash -c \
-        "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # Install Homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    
+    # DOESN'T WORK ON WSL, see next...
+    echo 'export PATH=/opt/homebrew/bin:$PATH' >> ~/.zshrc && . ~/.zshrc
 
-2. Update your profile
+    # WSL PATH
+    test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+    test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.zshrc
 
-        echo 'export PATH=/opt/homebrew/bin:$PATH' >> ~/.zshrc && . ~/.zshrc
 
-3. Install Python
-
-        brew install python && . ~/.zshrc && which pip3 && pip3 install --upgrade pip
+    ```
 
 4. Install all the things
-
-        pip3 install ansible \
-        && git clone https://github.com/epicserve/dotfiles.git .dotfiles \
-        && cd ~/.dotfiles && make install
-
-5. Install MacOS apps
-        
-       brew tap apppackio/apppack \
-       && for app in apppack aws-vault 1password bartender dropbox firefox fork iterm2 pycharm \
-               slack sequel-ace zoom visual-studio-code raycast tailscale; do
+    ```sh
+    # Install Brew Formulas
+    for app in uv zsh ansible; do
            brew install $app;
        done
+
+    # Install Python
+    uv python install 3.13 --default --preview
+
+    # Clone dotfiles
+    git clone https://github.com/swils23/dotfiles.git .dotfiles
+    cd ~/.dotfiles && make install
+    ```
 
 6. Change your default shell
 

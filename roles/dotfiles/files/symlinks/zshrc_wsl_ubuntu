@@ -29,7 +29,7 @@ export SPACESHIP_NODE_SHOW=false
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
   aws
-  django
+  # django
   docker
   docker-compose
   fabric
@@ -114,14 +114,12 @@ export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_BUILDKIT=1
 
 # Initialize direnv
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # Virtualenv Settings
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export WORKON_HOME=~/.virtualenvs
-source $HOME/.local/bin/virtualenvwrapper.sh
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# export WORKON_HOME=~/.virtualenvs
+# source $HOME/.local/bin/virtualenvwrapper.sh
 
 # aws-vault settings
 export AWS_VAULT_BACKEND=file
-
-cd ~

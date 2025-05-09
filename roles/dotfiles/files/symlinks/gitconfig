@@ -3,9 +3,8 @@
     status = auto
     branch = auto
 [user]
-	name = Brent O'Connor
-	email = epicserve@gmail.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL5YBRHIjMZibv1VjOrreeAuOn/Iti+Ynvz0UyFMDSge
+	name = Sam Wilson
+	email = samuelpwilson23@gmail.com
 [core]
     editor = code --wait
     excludesfile = ~/.gitignore
@@ -47,7 +46,5 @@
 	required = true
 [gpg]
   format = ssh
-[gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [commit]
 	gpgsign = true

@@ -21,7 +21,7 @@ install:
 	elif [ $$choice -eq 2 ]; then \
 		ansible-playbook -i hosts playbook.yml -c local --tags "dotfiles,brew"; \
 	elif [ $$choice -eq 3 ]; then \
-		ansible-playbook -i hosts playbook.yml -c local --tags "dotfiles,brew,wsl"; \
+		ansible-playbook -i hosts playbook.yml -c local --tags "wsl"; \
 	else \
 		echo "Invalid choice"; \
 	fi
